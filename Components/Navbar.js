@@ -11,12 +11,6 @@ const Navbar = () => {
                         <Image src="/logo.png" alt="logo" className="w-10" width="300" height="300"></Image>
                         <span className='text-xl text-white'>Stock Manager</span>
                     </Link>
-                    <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-                        <Link href="/" className="mr-5 hover:text-white">First Link</Link>
-                        <Link href="/" className="mr-5 hover:text-white">Second Link</Link>
-                        <Link href="/" className="mr-5 hover:text-white">Third Link</Link>
-                        <Link href="/" className="mr-5 hover:text-white">Fourth Link</Link>
-                    </nav>
                 </div>
             </nav>
         </>

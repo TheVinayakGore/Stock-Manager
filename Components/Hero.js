@@ -8,7 +8,7 @@ const Hero = () => {
     const [query, setQuery] = useState("");
     const [loading, setLoading] = useState(false);
     const [loadingaction, setloadingaction] = useState(false)
-    const [dropdown, setDropdown] = useState([ ]);
+    const [dropdown, setDropdown] = useState([]);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -106,8 +106,8 @@ const Hero = () => {
             <div className="flex flex-col p-10 px-20 space-y-14 font-light rounded-2xl">
                 {/* Search a Product */}
                 <div className="flex flex-col w-full">
-                    <div className="flex items-center space-x-4 text-2xl font-medium mb-4">
-                        <span>Search a Product</span> 
+                    <div className="flex items-center space-x-4 text-4xl font-medium mb-4">
+                        <span>Search a Product</span>
                         {loading && (
                             <svg className="" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <rect className="spinner_9y7u" x="1" y="1" rx="1" width="10" height="10" />
@@ -127,7 +127,7 @@ const Hero = () => {
                         </select>
                         <button type="submit" className="p-2 bg-blue-700 hover:bg-blue-800 text-white rounded w-1/3">Search</button>
                     </form>
-                    
+
                     <div className='flex flex-col items-center absolute z-30 top-[13rem] bg-zinc-800 rounded-b-xl w-[68rem]'>
                         {dropdown.map(item => {
                             return <div key={item.slug} className="flex items-center px-5 h-12 text-white w-full">
@@ -138,9 +138,9 @@ const Hero = () => {
                                     <span className='w-full'>₹ {item.price}</span>
                                 </div>
                                 <div className="flex items-center justify-between text-xl font-bold w-60">
-                                    <button onClick={()=> {buttonAction("minus", item.slug, item.quantity)}} disabled={loadingaction} className='py-2 px-3 leading-3 rounded-md bg-zinc-700 hover:bg-blue-700 disabled:opacity-50'>-</button>
+                                    <button onClick={() => { buttonAction("minus", item.slug, item.quantity) }} disabled={loadingaction} className='py-2 px-3 leading-3 rounded-md bg-zinc-700 hover:bg-blue-700 disabled:opacity-50'>-</button>
                                     <p className='text-base font-light'>{item.quantity}</p>
-                                    <button onClick={()=> {buttonAction("plus", item.slug, item.quantity)}} disabled={loadingaction} className='py-2 px-3 leading-3 rounded-md bg-zinc-700 hover:bg-blue-700 disabled:opacity-50'>+</button>
+                                    <button onClick={() => { buttonAction("plus", item.slug, item.quantity) }} disabled={loadingaction} className='py-2 px-3 leading-3 rounded-md bg-zinc-700 hover:bg-blue-700 disabled:opacity-50'>+</button>
                                 </div>
                             </div>
                         })}
@@ -149,7 +149,7 @@ const Hero = () => {
 
                 {/* Add a Product */}
                 <div className="flex flex-col relative top-0 w-full">
-                    <h1 className="text-2xl font-medium mb-4">Add a Product</h1>
+                    <h1 className="text-4xl font-medium mb-4">Add a Product</h1>
                     <form className="flex flex-col space-y-5">
                         <div className="flex gap-2 w-full">
                             <input value={productForm?.slug || ""} name='slug' onChange={handleChange} type="text" placeholder="Product Slug" className="p-2 px-4 bg-white/[0.1] rounded outline-none w-full" />
@@ -162,7 +162,7 @@ const Hero = () => {
 
                 {/* Display Current Stocks */}
                 <div className="flex flex-col w-full">
-                    <h1 className="text-2xl font-medium mb-4">Display Current Stocks</h1>
+                    <h1 className="text-4xl font-medium mb-4">Display Current Stocks</h1>
                     <table className="w-full border-collapse">
                         <thead>
                             <tr>
