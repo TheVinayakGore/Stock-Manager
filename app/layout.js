@@ -4,7 +4,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Stock Management System - Manage your Stock seamlessly !",
+  title: "Stock Manager - System to Manage Stocks | Manage your Stock seamlessly !",
   description: "Generated with love by Coding ViNU",
 };
 
