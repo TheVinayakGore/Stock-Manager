@@ -1,10 +1,10 @@
 "use client"
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 const Hero = () => {
     const [productForm, setProductForm] = useState({});
     const [products, setProducts] = useState([]);
-    const [alert, setAlert] = useState("");
     const [query, setQuery] = useState("");
     const [loading, setLoading] = useState(false);
     const [loadingaction, setloadingaction] = useState(false)
@@ -52,7 +52,7 @@ const Hero = () => {
             body: JSON.stringify({ action, slug, initialQuantity })
         });
         let r = await response.json();
-        console.log(r);
+        toast.info(r);
         setloadingaction(false);
     }
 
@@ -68,14 +68,14 @@ const Hero = () => {
             });
 
             if (response.ok) {
-                setAlert("Your product added successfully!");
+                toast.success("Your product added successfully !");
                 setProductForm({});
             } else {
-                console.error('Failed to add product');
+                toast.error('Failed to add product !');
             }
 
         } catch (error) {
-            console.error('Error:', error);
+            toast.error('Error:' + error);
         }
     };
 
@@ -102,7 +102,6 @@ const Hero = () => {
 
     return (
         <>
-            <span className='flex items-center justify-center m-auto text-green-500 text-xs'>{alert}</span>
             <div className="flex flex-col p-10 px-20 space-y-14 font-light rounded-2xl">
                 {/* Search a Product */}
                 <div className="flex flex-col w-full">
