@@ -5,13 +5,19 @@ export async function GET(request) {
   const query = request.nextUrl.searchParams.get("query");
 
   if (!query) {
-    return NextResponse.json({ error: "Query parameter is required" }, { status: 400 });
+    return NextResponse.json(
+      { error: "Query parameter is required" },
+      { status: 400 }
+    );
   }
 
   const uri = process.env.MONGODB_URI;
 
   if (!uri) {
-    return NextResponse.json({ error: "MongoDB URI is missing" }, { status: 500 });
+    return NextResponse.json(
+      { error: "MongoDB URI is missing" },
+      { status: 500 }
+    );
   }
 
   const client = new MongoClient(uri);
@@ -22,13 +28,9 @@ export async function GET(request) {
     const inventory = database.collection("inventory");
 
     const products = await inventory
-      .aggregate([
-        {
-          $match: {
-            $or: [{ slug: { $regex: query, $options: "i" } }],
-          },
-        },
-      ])
+      .find({
+        slug: { $regex: query, $options: "i" }, // Case-insensitive regex search
+      })
       .toArray();
 
     return NextResponse.json({ success: true, products });

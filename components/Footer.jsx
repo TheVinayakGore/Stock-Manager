@@ -1,64 +1,74 @@
+"use client";
 import React from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaLinkedin,
+  FaGithub,
+  FaEnvelope,
+} from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
+  const emailBody = encodeURIComponent("Hey, hi Vinayak Gore, I am...");
+
+  const socialLinks = [
+    {
+      icon: <FaFacebook className="w-6 h-6" />,
+      link: "https://www.facebook.com/profile.php?id=61561190855256&mibextid=ZbWKwL",
+    },
+    {
+      icon: <FaXTwitter className="w-6 h-6" />,
+      link: "https://x.com/vinugoredev",
+    },
+    {
+      icon: <FaLinkedin className="w-6 h-6" />,
+      link: "https://www.linkedin.com/in/vinayak-gore-b85b7922a/",
+    },
+    {
+      icon: <FaGithub className="w-6 h-6" />,
+      link: "https://github.com/TheVinayakGore",
+    },
+    {
+      icon: <FaEnvelope className="w-6 h-6" />,
+      link: `mailto:vvgore2677@gmail.com?subject=Contact%20from%20Stock%20Manager&body=${emailBody}`,
+    },
+  ];
+
   return (
-    <footer className="bg-zinc-100 dark:bg-zinc-900 py-10">
-      <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8">
+    <footer className="bg-zinc-100 dark:bg-zinc-900 py-10 w-full">
+      <section className="flex items-center justify-between px-20 w-full">
         {/* Logo & Description */}
-        <div>
-          <h2 className="text-2xl font-extrabold">Own Stock Manager</h2>
+        <div className="w-1/3">
+          <h2 className="text-2xl font-extrabold">Stock Manager</h2>
           <p className="mt-2 text-sm">
-            Build and manage UI components efficiently with our platform.
+            Efficiently manage and track your eCommerce inventory with our
+            powerful stock management system.
           </p>
         </div>
 
-        {/* Navigation Links */}
-        <div className="flex flex-col space-y-2">
-          <h3 className="text-lg font-semibold">Quick Links</h3>
-          <Link href="/about" className="hover:text-blue-500">
-            About
-          </Link>
-          <Link href="/pricing" className="hover:text-blue-500">
-            Pricing
-          </Link>
-          <Link href="/blog" className="hover:text-blue-500">
-            Blog
-          </Link>
-          <Link href="/contact" className="hover:text-blue-500">
-            Contact
-          </Link>
-        </div>
-
         {/* Social & CTA */}
-        <div>
-          <h3 className="text-lg font-semibold">Stay Connected</h3>
-          <div className="flex space-x-4 mt-2">
-            <Link href="#">
-              <FaFacebook className="text-xl hover:text-blue-500" />
-            </Link>
-            <Link href="#">
-              <FaTwitter className="text-xl hover:text-blue-500" />
-            </Link>
-            <Link href="#">
-              <FaLinkedin className="text-xl hover:text-blue-500" />
-            </Link>
-            <Link href="#">
-              <FaGithub className="text-xl hover:text-blue-500" />
-            </Link>
+        <div className="flex flex-col items-end justify-center gap-2 w-1/2">
+          <h3 className="text-2xl font-extrabold">Stay Tuned for updates</h3>
+          <div className="flex items-center gap-1">
+            {socialLinks.map((item, index) => (
+              <Link
+                key={index}
+                href={item.link}
+                target="_blank"
+                className="p-2 opacity-30 hover:opacity-100 rounded-full hover:bg-blue-500 hover:text-white transition duration-300 hover:scale-110"
+              >
+                {item.icon}
+              </Link>
+            ))}
           </div>
-          <Button className="mt-4 bg-primary hover:bg-primary/80">
-            Get Started
-          </Button>
         </div>
-      </div>
+      </section>
 
       {/* Copyright */}
-      <div className="text-center text-sm mt-8 border-t pt-6">
-        &copy; {new Date().getFullYear()} VUIHUB. All rights reserved.
-      </div>
+      <section className="text-center text-sm mt-8 border-t pt-6">
+        &copy; {new Date().getFullYear()} Stock Manager. All rights reserved.
+      </section>
     </footer>
   );
 };
