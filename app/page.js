@@ -1,14 +1,14 @@
-import React from "react";
-import Hero from "@/Components/Hero";
-import Navbar from "@/Components/Navbar";
+import Hero from '@/components/Hero'
+import React from 'react'
 
-export default function Home() {
+const page = () => {
   return (
     <>
-      <div className="flex flex-col font-light">
-        <Navbar />
+      <main className='p-20'>
         <Hero />
-      </div>
+      </main>
     </>
-  );
+  )
 }
+
+export default page

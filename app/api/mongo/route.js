@@ -1,24 +1,27 @@
 import { MongoClient } from "mongodb";
 import { NextResponse } from "next/server";
 
-
 export async function GET(request) {
+  const uri = process.env.MONGODB_URI;
 
-const uri = "mongodb+srv://mongoatlas:56uYkUlBtKxp4dsy@vinugore.l2zgwsk.mongodb.net/";
+  if (!uri) {
+    return NextResponse.json({ error: "MongoDB URI is missing" }, { status: 500 });
+  }
 
-const client = new MongoClient(uri);
+  const client = new MongoClient(uri);
 
   try {
-    const database = client.db('vinu');
-    const movies = database.collection('inventory');
+    await client.connect();
+    const database = client.db("vinu");
+    const movies = database.collection("inventory");
 
-    const query = { };
+    const query = {};
     const movie = await movies.find(query).toArray();
 
-    console.log(movie);
-    return NextResponse.json({"a": 34, movie})
+    return NextResponse.json({ success: true, data: movie });
+  } catch (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
   } finally {
     await client.close();
   }
-
 }
