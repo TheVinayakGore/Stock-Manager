@@ -1,10 +1,13 @@
 "use client";
 import React from "react";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import { FaFacebook, FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import Image from "next/image";
 
 const Footer = () => {
+  const { theme } = useTheme();
   const emailBody = encodeURIComponent("Hey, hi Vinayak Gore, I am...");
 
   const socialLinks = [
@@ -32,11 +35,22 @@ const Footer = () => {
 
   return (
     <footer className="bg-zinc-100 dark:bg-zinc-900 py-10 w-full">
-      <section className="flex flex-col md:flex-row items-center md:items-start justify-between px-10 lg:px-20 gap-10 w-full text-center md:text-left">
+      <section className="flex flex-col md:flex-row items-center md:items-start justify-between px-3 sm:px-10 lg:px-20 gap-5 md:gap-10 w-full text-center md:text-left">
         {/* Logo & Description */}
         <div className="w-full md:w-1/3">
-          <h2 className="text-2xl font-extrabold">Stock Manager</h2>
-          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">
+          <div className="flex items-center md:items-start justify-center md:justify-start gap-2 w-full">
+            <Image
+              src={theme === "dark" ? "/logo.webp" : "/logo2.webp"}
+              alt="logo"
+              className="w-7 md:w-9"
+              width="300"
+              height="300"
+            />
+            <h2 className="text-lg md:text-2xl font-semibold">
+              Stock Manager
+            </h2>
+          </div>
+          <p className="mt-2 text-xs md:text-sm px-5 md:px-0 text-zinc-600 dark:text-zinc-300">
             Efficiently manage and track your eCommerce inventory with our
             powerful stock management system.
           </p>
@@ -44,8 +58,10 @@ const Footer = () => {
 
         {/* Social & CTA */}
         <div className="w-full md:w-1/2 flex flex-col items-center md:items-end justify-center gap-3">
-          <h3 className="text-xl md:text-2xl font-extrabold">Stay Tuned for updates</h3>
-          <div className="flex flex-wrap justify-center md:justify-end gap-3">
+          <h3 className="text-base md:text-2xl font-medium opacity-70">
+            Stay Tuned for updates
+          </h3>
+          <div className="flex flex-wrap justify-center md:justify-end gap-1 md:gap-3">
             {socialLinks.map((item, index) => (
               <Link
                 key={index}
@@ -61,7 +77,7 @@ const Footer = () => {
       </section>
 
       {/* Copyright */}
-      <section className="text-center text-sm mt-8 border-t pt-6 text-zinc-600 dark:text-zinc-400 px-4">
+      <section className="text-center text-xs md:text-sm mt-5 border-t pt-6 text-zinc-600 dark:text-zinc-400">
         &copy; {new Date().getFullYear()} Stock Manager. All rights reserved.
       </section>
     </footer>

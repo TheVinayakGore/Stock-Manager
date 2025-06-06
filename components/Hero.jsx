@@ -104,21 +104,21 @@ const Hero = () => {
   };
 
   return (
-    <main className="flex flex-col items-center gap-28 text-base font-light relative w-full">
+    <main className="flex flex-col items-center gap-10 md:gap-28 text-base font-light relative w-full">
       {/* Add/Edit a Product */}
       <section className="flex flex-col w-full">
-        <h1 className="text-4xl font-medium mb-10">
+        <h1 className="text-xl md:text-4xl font-medium mb-5 md:mb-10">
           {isEditing ? "Edit Product" : "Add a Product"}
         </h1>
-        <form className="flex flex-col space-y-6" onSubmit={handleSubmit}>
-          <div className="flex flex-wrap gap-4 w-full">
+        <form className="flex flex-col space-y-3 md:space-y-6" onSubmit={handleSubmit}>
+          <div className="flex flex-wrap gap-2 md:gap-4 w-full">
             <Input
               value={productForm?.slug || ""}
               name="slug"
               onChange={handleChange}
               type="text"
               placeholder="Product Slug"
-              className="p-6 flex-1 min-w-[200px]"
+              className="p-3 md:p-6 text-sm md:text-base flex-1 min-w-[200px]"
             />
             <Input
               value={productForm?.price || ""}
@@ -126,7 +126,7 @@ const Hero = () => {
               onChange={handleChange}
               type="number"
               placeholder="₹ Price"
-              className="p-6 flex-1 min-w-[200px]"
+              className="p-3 md:p-6 text-sm md:text-base flex-1 min-w-[200px]"
             />
             <Input
               value={productForm?.quantity || ""}
@@ -134,7 +134,7 @@ const Hero = () => {
               onChange={handleChange}
               type="number"
               placeholder="Stock Quantity"
-              className="p-6 flex-1 min-w-[200px]"
+              className="p-3 md:p-6 text-sm md:text-base flex-1 min-w-[200px]"
             />
             <Select
               value={productForm?.category || ""}
@@ -142,7 +142,7 @@ const Hero = () => {
                 setProductForm({ ...productForm, category: value })
               }
             >
-              <SelectTrigger className="p-6 flex-1 min-w-[200px]">
+              <SelectTrigger className="p-3 md:p-6 text-sm md:text-base flex-1 min-w-[200px]">
                 <SelectValue placeholder="Select Category" />
               </SelectTrigger>
               <SelectContent>
@@ -155,7 +155,7 @@ const Hero = () => {
           </div>
           <Button
             type="submit"
-            className="p-6 text-lg font-medium w-full bg-blue-500 hover:bg-blue-600 text-white"
+            className="p-4 sm:p-6 text-base sm:text-lg font-medium w-full bg-blue-500 hover:bg-blue-600 text-white"
           >
             {isEditing ? "Update Product" : "+ Add Product"}
           </Button>
@@ -166,27 +166,27 @@ const Hero = () => {
 
       {/* Display Current Stocks */}
       <section className="flex flex-col w-full">
-        <h1 className="text-4xl font-medium mb-10">Display Current Stocks</h1>
+        <h1 className="text-xl md:text-4xl font-medium mb-5 md:mb-10">Display Current Stocks</h1>
         <div className="border border-zinc-300 dark:border-zinc-700 rounded-lg overflow-auto">
           <Table className="min-w-full">
             <TableHeader>
               <TableRow className="bg-zinc-100 dark:bg-zinc-700">
-                <TableHead className="text-lg font-semibold py-4 px-6 w-1/3">
+                <TableHead className="text-sm md:text-lg font-semibold py-2 md:py-4 px-3 md:px-6 w-1/3">
                   Product Slug
                 </TableHead>
-                <TableHead className="text-lg font-semibold py-4 px-6">
-                  Stock Quantity
+                <TableHead className="text-sm md:text-lg font-semibold py-2 md:py-4 px-3 md:px-6">
+                  Stock
                 </TableHead>
-                <TableHead className="text-lg font-semibold py-4 px-6">
+                <TableHead className="text-sm md:text-lg font-semibold py-2 md:py-4 px-3 md:px-6">
                   Price
                 </TableHead>
-                <TableHead className="text-lg font-semibold py-4 px-6">
+                <TableHead className="text-sm md:text-lg font-semibold py-2 md:py-4 px-3 md:px-6">
                   Category
                 </TableHead>
-                <TableHead className="text-lg font-semibold py-4 px-6">
+                <TableHead className="text-sm md:text-lg font-semibold py-2 md:py-4 px-3 md:px-6">
                   Edit
                 </TableHead>
-                <TableHead className="text-lg font-semibold py-4 px-6">
+                <TableHead className="text-sm md:text-lg font-semibold py-2 md:py-4 px-3 md:px-6">
                   Delete
                 </TableHead>
               </TableRow>
@@ -194,15 +194,15 @@ const Hero = () => {
             <TableBody>
               {products.map((product, index) => (
                 <TableRow key={product.slug ?? index}>
-                  <TableCell className="py-3 px-6 w-1/3">{product.slug}</TableCell>
-                  <TableCell className="py-3 px-6">
+                  <TableCell className="py-1 md:py-3 px-3 md:px-6 w-1/3">{product.slug}</TableCell>
+                  <TableCell className="py-1 md:py-3 px-3 md:px-6">
                     {product.quantity}
                   </TableCell>
-                  <TableCell className="py-3 px-6">₹{product.price}</TableCell>
-                  <TableCell className="py-3 px-6 capitalize">
+                  <TableCell className="py-1 md:py-3 px-3 md:px-6">₹{product.price}</TableCell>
+                  <TableCell className="py-1 md:py-3 px-3 md:px-6 capitalize">
                     {product.category}
                   </TableCell>
-                  <TableCell className="py-3 px-6">
+                  <TableCell className="py-1 md:py-3 px-3 md:px-6">
                     <Button
                       variant="outline"
                       size="icon"
@@ -211,7 +211,7 @@ const Hero = () => {
                       <Edit className="w-5 h-5" />
                     </Button>
                   </TableCell>
-                  <TableCell className="py-3 px-6">
+                  <TableCell className="py-1 md:py-3 px-3 md:px-6">
                     <Button
                       variant="destructive"
                       size="icon"
