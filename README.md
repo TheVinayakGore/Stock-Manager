@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 📦 Stock-Manager
 
-## Getting Started
+Stock-Manager is a full-stack Inventory Management Web Application built using the MERN stack. It helps you efficiently manage products, categories, and stock levels in real time. The app is responsive, secure, and built for scalability.
 
-First, run the development server:
+🔗 [Live Demo](https://ownstockmanager.vercel.app/)
+
+## 🚀 Tech Stack
+-	Frontend : Next.js 14+, React.js, JavaScript, Tailwind CSS, Shadcn UI
+-	Backend : Node.js, Express.js
+-	Database : [MongoDB Atlas](https://account.mongodb.com/account/login) (cloud-based storage)
+-	Auth : Custom (or extendable with [Clerk/Auth.js](https://clerk.com/))
+-	Deployment : Vercel (Frontend), MongoDB Atlas (DB)
+
+
+## ✅ Features
+-	📦 Add, update & delete inventory items
+-	🏷️ Categorize products
+-	📊 Track stock levels in real time
+-	🔍 Search & filter products
+-	📱 Fully responsive design
+-	⚙️ Built with scalable and maintainable code architecture
+-	🧠 Easily customizable and extendable
+-	🔐 Authentication-ready structure
+
+
+## 🗂️ Project Structure
+
+```bash
+├── app             # Next.js app router logic
+├── components      # UI components using Shadcn UI
+├── lib             # Utility & DB connection helpers
+├── public          # Static files and assets
+├── README.md
+├── next.config.mjs # Next.js configuration
+└── ...
+```
+
+
+## 🛠 Getting Started
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/TheVinayakGore/Stock-Manager.git
+cd Stock-Manager
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Add your environment variables
+
+Create a .env.local file :
+
+```bash
+MONGODB_URI=your_mongodb_connection_string
+```
+
+4. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📤 Deploy Your Own
 
-## Learn More
+Want to deploy your own version of Stock-Manager ?
 
-To learn more about Next.js, take a look at the following resources:
+You can easily deploy it using Vercel in just a few steps :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Steps to Deploy on Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1.	Push the project to GitHub
+  -	Make sure your code is committed and pushed to a GitHub repository.
+2.	Login to Vercel
+  -	Go to vercel.com and sign in with GitHub.
+3.	Import your GitHub Repository
+	-	Click on + New Project → Import Git Repository.
+	-	Select the Stock-Manager repo from the list.
+4.	Configure Environment Variables
+	-	Add your environment variables during the setup:
 
-## Deploy on Vercel
+```bash
+MONGODB_URI=your_mongodb_connection_string
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5.	Choose Framework Preset
+	-	Vercel will auto-detect the Next.js framework. Leave the default settings unless custom.
+6.	Deploy
+	-	Click Deploy and wait for Vercel to build and deploy your app.
+	-	Once done, you’ll get a live URL like:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+https://your-project-name.vercel.app
+```
+
+7.	Post-Deployment
+	-	Optionally, go to your project settings on Vercel and :
+	-	Set up a custom domain.
+	-	Configure automatic re-deployment on GitHub pushes.
+	-	Enable serverless function logs and analytics.
+
+🔗 Vercel Docs - [Getting Started](https://vercel.com/docs/getting-started-with-vercel)
+
+
+## 🧩 Future Enhancements
+
+-	🔐 Add JWT/Auth.js/Clerk-based user authentication
+-	📈 Add analytics/dashboard to monitor inventory
+-	📤 Export inventory as CSV/PDF
+-	📱 PWA support for mobile usage
+
+## 📫 Connect
+
+Built with ❤️‍🩹 by Vinayak Gore
+
+For queries or feedback, feel free to connect : [@vinayakgore.vercel.app](https://vinayakgore.vercel.app)
+
+Let me know if you’d like a badge section, GIF demo preview, or GitHub stats added as well !
+
+
+💻 Happy coding ! 🎉
+
+⌲ Design.Implement.Inspire
