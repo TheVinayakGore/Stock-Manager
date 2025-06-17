@@ -23,7 +23,7 @@ Stock-Manager is a full-stack Inventory Management Web Application built using t
 -	🔐 Authentication-ready structure
 
 
-## 🗂️ Project Structure
+## 🗂️ Important Folder Structure
 
 ```bash
 ├── app             # Next.js app router logic
